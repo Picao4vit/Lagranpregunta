@@ -1,0 +1,164 @@
+/* Importamos una fuente retro de Google Fonts para darle más estilo */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body {
+    
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    
+    /* 1. CAMBIAMOS height POR min-height */
+    min-height: 100vh; 
+    
+    /* 2. AGREGAMOS PADDING PARA QUE NO CHOQUE CON LOS BORDES */
+    padding: 40px 20px; 
+    box-sizing: border-box; /* Asegura que el padding no rompa la pantalla */
+    
+    margin: 0;
+    background: radial-gradient(circle, #f4f1ea 40%, #d5d0c4 100%);
+    color: #2b2b2b;
+    font-family: 'VT323', monospace; 
+    
+}
+
+h1 {
+    font-size: 4rem; /* Texto bien grande */
+    margin-bottom: 10px;
+    text-align: center;
+}
+h2 {
+    font-size: 4rem; /* Texto bien grande */
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.contenedor-botones {
+    display: flex;
+    gap: 30px; /* Crea una separación perfecta entre ambos botones */
+}
+
+button {
+    font-size: 1.8rem;
+    padding: 15px 40px; /* Hace que los botones sean "gorditos" y grandes */
+    font-family: inherit; /* Hereda la misma fuente retro */
+    border: 3px solid #2b2b2b;
+    border-radius: 12px; /* Bordes ligeramente redondeados */
+    cursor: pointer;
+    background-color: white;
+    
+    /* Sombra sólida para ese efecto de los años 80/90 */
+    box-shadow: 6px 6px 0px #2b2b2b; 
+    transition: all 0.2s ease; /* Transición suave para cuando pasas el mouse */
+}
+
+/* Estilo específico para el botón de Aceptar */
+#boton_si {
+    background-color: #a8e6cf; 
+    /* Le decimos que use la animación 'latido', que dure 1.5 segundos y se repita infinito */
+    animation: latido 1.5s infinite ease-in-out;
+}
+
+/* Efecto al presionar el botón de Aceptar */
+#boton_si:active {
+    /* Quitamos temporalmente la animación mientras se hace clic */
+    animation: none; 
+    /* Mantenemos el efecto de hundirse que ya teníamos */
+    transform: translate(4px, 4px); 
+    box-shadow: 2px 2px 0px #2b2b2b
+}
+
+/* Estilo específico para el botón de Negar */
+#boton_no {
+    background-color: #ff8b94; /* Rosa pastel */
+    position: relative; /* Clave para que tu JavaScript lo mueva después */
+}
+
+
+
+#boton_no {
+    transition: all 0.5s ease;
+}
+
+@keyframes latido {
+    0% {
+        transform: scale(1); /* Tamaño normal */
+    }
+    50% {
+        transform: scale(1.05); /* Crece un 5% a la mitad de la animación */
+    }
+    100% {
+        transform: scale(1); /* Vuelve a su tamaño normal */
+    }
+}
+
+.El-sobre {
+    background-color: #fdfbf7; /* Un blanco un poco más limpio para la hoja */
+    border: 3px solid #2b2b2b;
+    box-shadow: 6px 6px 0px #2b2b2b;
+    padding: 30px; /* Espacio interno para que el texto respire */
+    
+    /* MAGIA PARA CELULARES */
+    width: 85%; /* Ocupará el 85% del ancho en un celular... */
+    max-width: 500px; /* ...pero nunca será más ancha que 500px en PC */
+    
+    border-radius: 10px;
+    text-align: center;
+}
+
+.el-texto {
+    
+    font-size: 1.5rem;
+    line-height: 1.4; 
+    margin-bottom: 30px;
+    text-align: center; /* Todo vuelve al medio */
+}
+
+
+/* Animación para que el botón aparezca con suspenso */
+.boton-oculto {
+    opacity: 0; /* El botón empieza 100% invisible */
+    animation: aparecer 2s ease forwards; /* Dura 2 segundos la animación */
+    animation-delay: 3s; /* Espera 3 segundos antes de empezar a aparecer */
+}
+
+/* La instrucción de la animación */
+@keyframes aparecer {
+    to {
+        opacity: 1; /* Termina siendo 100% visible */
+    }
+}
+
+
+
+.stickers-fondo {
+    position: fixed; /* Se queda quieto aunque bajes la página */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* MAGIA: Evita que interfieran si el usuario hace clic sin querer */
+    z-index: -1; /* Se van detrás de la carta */
+}
+
+.sticker {
+    position: absolute;
+    opacity: 1; /* Un poco transparentes para que no distraigan */
+}
+
+/* Posición, tamaño, color y rotación de CADA sticker */
+.s1 { top: 10%; left: 8%; font-size: 4rem; color: #e5cc80; transform: rotate(-20deg); }
+.s2 { top: 15%; right: 12%; font-size: 5rem; color: #ff8b94; transform: rotate(15deg); }
+.s3 { bottom: 30%; left: 10%; font-size: 4.5rem; color: #a8e6cf; transform: rotate(10deg); }
+.s4 { bottom: 15%; right: 15%; font-size: 4rem; color: #ff8b94; transform: rotate(-10deg); }
+.s5 { top: 45%; left: 4%; font-size: 3rem; color: #e5cc80; transform: rotate(30deg); }
+.s6 { top: 55%; right: 5%; font-size: 3.5rem; color: #ffb7b2; transform: rotate(-25deg); }
+
+
+
+.s7{ top: 60%; left: 6%; font-size: 4rem; color: #e5cc80; transform: rotate(-20deg); }
+.s8{ top: 80%; right: 5%; font-size: 5rem; color: #ff8b94; transform: rotate(15deg); }
+.s9{ bottom: 90%; left: 15%; font-size: 4.5rem; color: #a8e6cf; transform: rotate(10deg); }
+.s10{ bottom: 21%; right: 5%; font-size: 4rem; color: #ff8b94; transform: rotate(-10deg); }
+.s11{ top: 32%; left: 10%; font-size: 4rem; color: #e5cc80; transform: rotate(-20deg); }
+.s12{ top: 76%; right: 32%; font-size: 3.5rem; color: #ffb7b2; transform: rotate(-25deg); }
